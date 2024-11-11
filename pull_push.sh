@@ -1,4 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+
+if ! command -v jq > /dev/null 2>&1; then
+    printf '\n%s\n%s\n' "ERROR: Jq is not available." \
+                        "This script requires jq, please install (example: apt install jq -y) and try again."
+    exit 1
+fi
+
 
 check_inputs() {
     if [[ -z "$1" ]]; then
